@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.0">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>432</y>
+      <w>176</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>
+GameActivity
+
+--
+
+-SPACING_BETWEEN_BARRIERS = 350: int
+-BALL_DIAMETER = 75: int
+-BALL_VELOCITY_X = 100: int
+-BALL_VELOCITY_Y = 220: int
+-GRAVITY = 200: int
+-BARRIER_WIDTH = 75: int
+-GAP_SIZE_OF_ONE_BARRIER = (int) (3 * BALL_DIAMETER): int
+
+-view: GameView
+-screenWidth: int
+-screenHeight: int
+
+-handler: Handler
+-gameRunning: boolean
+-lastFrame: long
+-toast: Toast
+
+-barrierList: ArrayList&lt;Barrier&gt;
+-ball: Rectangle
+-time0: long
+-currentVelocityX: float
+-barriersCrossed: int
+
+--
+
+#onCreate(Bundle savedInstanceState): void
+#onResume(): void
+#onPause(): void
+#onDestroy(): void
+
+--
+
++onKeyDown(int keyCode, KeyEvent event): boolean
+
++run(): void
+
++onClick(View view): void
++onAccuracyChanged(Sensor sensor, int accuracy): void
++onSensorChanged(SensorEvent event): void
+
+-generateNewBarrier(float x): Barrier
+-moveAllBarriers(long renderDuration): void
+-moveBall(long renderDuration): void
+-didPlayerCrashIntoBarrier(): boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>436</y>
+      <w>144</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>
+Rectangle
+
+--
+
+-x: float
+-y: float
+-width: float
+-height: float
+
+--
+
++Rectangle(float x, float y, float width, float height): ctor
+
+--
+
++getX(): float
++setX(float x): void
++getY(): float
++setY(float y): void
++getWidth(): float
++setWidth(float width): void
++getHeight(): float
++setHeight(float height): void
++getLeft(): float
++getRight(): float
++getBottom(): float
++getTop(): float
++getCenterX(): float
++getCenterY(): float
+
++intersects(Rectangle rectangle): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>476</y>
+      <w>176</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>
+Barrier
+
+--
+
+-barrierPart1: Rectangle
+-barrierPart2: Rectangle
+-crossed: boolean
+--
+
++Barrier(Rectangle hindernissTeil1, Rectangle hindernissTeil2): ctor
+
+--
+
++getBarrierPart1(): Rectangle
++getBarrierPart2(): Rectangle
++isCrossed(): boolean
++setCrossed(): void
++getX(): float
++setX(float x): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>820</y>
+      <w>140</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>
+GameOverActivity
+
+--
+
++POINTS = "points": String
+-restartButton: Button
+-startMenuButton: Button
+
+--
+
+#onCreate(Bundle savedInstanceState): void
+#onResume(): void
+#onPause(): void
+#onDestroy(): void
+
+--
+
++onKeyDown(int keyCode, KeyEvent event): boolean
++onClick(View view): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>256</y>
+      <w>140</w>
+      <h>124</h>
+    </coordinates>
+    <panel_attributes>
+StartActivity
+
+--
+
+-playButton: Button
+-settingsButton: Button
+-exitButton: Button
+
+--
+
+#onCreate(Bundle savedInstanceState): void
+#onResume(): void
+#onPause(): void
+#onDestroy(): void
+
+--
+
++onKeyDown(int keyCode, KeyEvent event): boolean
++onClick(View view): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>332</x>
+      <y>664</y>
+      <w>376</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>
+GameView
+
+--
+
+-surfaceHolder: SurfaceHolder
+
+--
+
++GameView(Context context): ctor
+
+--
+
++drawGame(int backgroundColorResourceId, Rectangle ball, int ballColorResourceId, ArrayList&lt;Barrier&gt; barrierList, int barrierColorResourceId): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>404</y>
+      <w>708</w>
+      <h>392</h>
+    </coordinates>
+    <panel_attributes>bg=#7D7DFF
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>804</y>
+      <w>708</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>bg=#FF8080
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>248</y>
+      <w>708</w>
+      <h>148</h>
+    </coordinates>
+    <panel_attributes>bg=#85E685
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
